@@ -160,7 +160,11 @@ On dispose dans cette image d'un script pré conçue qui compile tous les logici
 build_workspace
 ```
 
-Il faut alors choisir `y to clone with ssh keys` puis `1 for b3rb`. Acceptez ensuite tout ce qu'on pourrait vous demander.
+Il faut alors choisir `y to clone with ssh keys` puis `1 for b3rb`. Acceptez ensuite tout ce qu'on pourrait vous demander, notamment à la fin de la procédure vous êtes invité à éxécuter :
+
+```
+source ~/.bashrc
+```
 
 Il reste le logiciel de simulation à compiler pour ça, comme pour avant mais avant la commande
 
@@ -168,5 +172,10 @@ Il reste le logiciel de simulation à compiler pour ça, comme pour avant mais a
 build_foxglove
 ```
 
-Il faut alors choisir `y to clone with ssh keys` puis `1 for airy`. Acceptez ensuite tout ce qu'on pourrait vous demander.
+Il faut alors choisir `y to clone with ssh keys` puis `1 for airy`. Acceptez ensuite tout ce qu'on pourrait vous demander, notamment à la fin de la procédure vous êtes invité à éxécuter :
 
+```
+source ~/.bashrc
+```
+
+# Utilisation du simulateur
