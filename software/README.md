@@ -95,6 +95,7 @@ Pour pénétrer l'image docker utilisez toujours cette commande :
 
 ```
 cd ~/cognipilot/docker/dream
+./dream start
 ./dream exec
 ```
 
@@ -106,8 +107,10 @@ Afin de faciliter la connexion avec github, on peut établir des autorisations v
 
 ```
 cd ~/cognipilot/docker/dream
+./dream start
 ./dream exec
 ```
+
 
 Ensuite il faut générer une clé SSH que l'on passera à GitHub  :
 
@@ -147,6 +150,7 @@ Normalement vous êtes toujours dans votre image docker mais si ce n'est pas le 
 
 ```
 cd ~/cognipilot/docker/dream
+./dream start
 ./dream exec
 ```
 
@@ -164,5 +168,5 @@ Il reste le logiciel de simulation à compiler pour ça, comme pour avant mais a
 build_foxglove
 ```
 
-Il faut alors choisir `y to clone with ssh keys` puis `1 for b3rb`. Acceptez ensuite tout ce qu'on pourrait vous demander.
+Il faut alors choisir `y to clone with ssh keys` puis `1 for airy`. Acceptez ensuite tout ce qu'on pourrait vous demander.
 
