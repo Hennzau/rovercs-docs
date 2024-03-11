@@ -179,3 +179,35 @@ source ~/.bashrc
 ```
 
 # Utilisation du simulateur
+
+Normalement si vous avez suivi toutes les étapes votre installation permet d'utiliser le simulateur :
+
+Démarrez et pénétrez l'image docker **dans deux terminaux différents** :
+
+```
+cd ~/cognipilot/docker/dream
+./dream start
+./dream exec
+```
+
+Dans l'un des deux vous devez démarez l'interface de commande :
+
+```
+ros2 launch electrode electrode.launch.py sim:=true
+```
+
+- Une fenêtre devrez alors s'ouvrir, vous devez cliquer sur "Ouvrir une connexion" et acceptez la connexion "ws://localhost:8765"
+- Ensuite dans la fenêtre principale, tout en haut à gauche cliquez et sélectionnez "View" puis "Import layout from file"
+- Sélectionnez alors cognipilot > electrode > src > electrode > foxglove_layouts > b3rb.json
+
+Actuellement la simulation est vide, car on a juste démarrer l'interface de contrôle, il faut maintenant rajouter le noeud de la simulation : Gazebo. Dans l'autre terminal tapez
+
+```
+ros2 launch b3rb_gz_bringup sil.launch.py world:=basic_map
+```
+
+Normalement sur l'interface de contrôle vous devriez observer un robot dans un espace avec des obstacles. Pour le contrôler manuellement sélectionner "manual", puis "arm" et enfin utilisez le joystick.
+
+# Contrôle du robot physique
+
+Pour cette partie il faut installé les bons logiciels sur la carte NavQ+
