@@ -10,7 +10,7 @@ Autour de cette partie on monte également l'armature en plastique (imprimé en 
 
 On monte également alors deux nouvelles cartes : le NavQ+ et le MRCANHUB. La première s'occupe de la comunication entre un ordinateur, et les éléments externes (GPS, Lidar) avec le MRCANHUB qui s'occupe lui de commander le robot (moteurs). ![](images/4.jpeg) ![](images/1.jpeg)
 
-Finalement en rajoutant la caméra avant, le GPS et le Lidar notre rover ressemble à : ![](images/8.jpeg)
+Finalement en rajoutant la caméra avant, le GPS et le Lidar notre rover ressemble à : ![](images/7.jpeg)
 
 Une fois le robot monté, on peut accéder aux câbles de la batterie via un des côtés du rover. Il est également possible de se connecter aux différentes cartes :
 
