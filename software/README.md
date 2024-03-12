@@ -82,7 +82,7 @@ Comme je l'ai précisé il existe une image du soft qui permet de tout faire sim
 ```
 mkdir -p ~/cognipilot
 cd ~/cognipilot
-git clone -b <BRANCH> https://github.com/cognipilot/docker
+git clone -b airy https://github.com/cognipilot/docker
 cd  ~/cognipilot/docker
 git submodule update --init --recursive
 cd ~/cognipilot/docker/dream
