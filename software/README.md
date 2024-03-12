@@ -178,6 +178,8 @@ Il faut alors choisir `y to clone with ssh keys` puis `1 for airy`. Acceptez ens
 source ~/.bashrc
 ```
 
+==== PAS ENCORE ça ======
+
 Ensuite il faut cloner le répertoire github de votre équipe qui contient le Cerebi. Pour notre part c'est 
 
 ```
@@ -194,6 +196,8 @@ west update
 west build -b native_sim app/b3rb/ -p -t install
 source ~/.bashrc
 ```
+
+==== Cette étape n'était pas à faire =====
 
 # Utilisation du simulateur
 
@@ -344,8 +348,8 @@ sudo apt-get install nano
 Puis
 
 ```
-cd ~/cognipilot/ws/rovercs
-nano ~/cognipilot/ws/rovercs/app/b3rb/prj.conf
+cd ~/cognipilot/ws/cerebri
+nano ~/cognipilot/ws/cerebri/app/b3rb/prj.conf
 ```
 
 Il est possible que les lignes soient déjà corrigées
@@ -359,7 +363,7 @@ Ensuite faites CTRL+X pour sauvegarder, appuyer directement sur entrée quand il
 Ensuite il faut éxécuter :
 
 ```
-cd ~/cognipilot/ws/rovercs
+cd ~/cognipilot/ws/cerebri
 git pull
 west update
 west build -b mr_canhubk3 app/b3rb -p
