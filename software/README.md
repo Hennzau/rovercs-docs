@@ -344,9 +344,11 @@ sudo apt-get install nano
 Puis
 
 ```
-cd ~/cognipilot/ws/cerebri
-nano ~/cognipilot/ws/cerebri/app/b3rb/prj.conf
+cd ~/cognipilot/ws/rovercs
+nano ~/cognipilot/ws/rovercs/app/b3rb/prj.conf
 ```
+
+Il est possible que les lignes soient déjà corrigées
 
 Trouver la ligne `CONFIG_CEREBRI_SENSE_POWER=y` et la ligne `CONFIG_CEREBRI_SENSE_SAFETY=y`
 
@@ -357,7 +359,7 @@ Ensuite faites CTRL+X pour sauvegarder, appuyer directement sur entrée quand il
 Ensuite il faut éxécuter :
 
 ```
-cd ~/cognipilot/ws/cerebri
+cd ~/cognipilot/ws/rovercs
 git pull
 west update
 west build -b mr_canhubk3 app/b3rb -p
