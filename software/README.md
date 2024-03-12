@@ -210,4 +210,145 @@ Normalement sur l'interface de contrôle vous devriez observer un robot dans un 
 
 # Contrôle du robot physique
 
-Pour cette partie il faut installé les bons logiciels sur la carte NavQ+
+Pour cette partie il faut installé les bons logiciels sur la carte NavQ+ et sur le MRCANHUB. Il faut cependant prendre conscience que dans le cadre de la compétition, seul le logiciel sur le MRCANHUB doit être modifié.
+Ainsi en théorie si la NavQ+ a été correctement installée il n'est plus nécessaire de faire le paragraphe suivant:
+
+## Flash du NavQ+
+
+Pour faire cette partie il est primordial d'aller télécharger les 3 fichiers en bas de cette [page internet](https://github.com/rudislabs/navqplus-images/releases/tag/22.04.4-humble)
+
+Les trois fichiers sont :
+- navqplus-image-22.04-humble-240105185325.bin-flash_evk
+- navqplus-image-22.04-humble-240105185325.wic.zst
+- uuu
+
+Il faut placer ces trois fichiers au même endroit et commencer par décompresser l'archive de l'ISO :
+
+```
+unzstd navqplus-image-22.04-humble-240105185325.wic.zst
+```
+
+Ensuite il faut s'octroyer les permissions d'éxécuter le programme `uuu` avec l'iso
+
+```
+chmod a+x uuu
+```
+
+Désormais il faut éffectuer le branchement du NavQ+. Tout d'abord veillez **à ne pas connecter la batterie du rover au circuit**. La NavQ+ sera alimenté par votre ordinateur
+Il faut ensuite connecter le câble USB-A <-> USB-C de cette manière et positionner les switchs comme il faut ![](images/1.png)
+
+Pour le mode flash il faut que les switchs soient ON - OFF.
+
+Enfin une fois tout connecté et téléchargé, on peut éxécuter
+
+```
+sudo ./uuu -b emmc_all navqplus-image-22.04-humble-240105185325.bin-flash_evk navqplus-image-22.04-humble-240105185325.wic
+```
+
+Le flash de la carte peut prendre une dizaine de minute mais il y'a une barre d'avancement qui permet de savoir où on en est.
+
+Débrancher la NavQ.
+
+Il faut maintenant modifier les switchs en OFF - ON pour être en mode eMMC.
+
+## Se log sur la NavQ+
+
+Lors de la première utilisation le wifi de la NavQ n'est connecté à rien, il faut donc s'y connecté de manière filaire avec le même câble que précédemment mais en l'insérant dans le port USB le plus au centre (USB2 sur l'image précédente)
+
+Une fois tout connecté il faut modifier votre network manager Ubuntu, pour celà ouvrez les paramètres système et en dessous de "Wifi" allez dans "Réseau", ajouter un nouveau réseau, en mode manuel et rentrez ces valeurs :
+
+![](images/2.png)
+
+Parfois la connexion se fait mal, dans ce cas désactivez le Wifi de votre ordinateur, cela forcera votre Ubuntu à se connecter à la NavQ.
+
+Vous pouvez alors pénétrez la NavQ en ssh
+
+```
+ssh user@192.168.186.2
+```
+
+Sélectionner "yes" pour vous connecter puis comme mot de passe: **user**
+
+Une fois en SSH dans la NavQ vous devez la connecter à un Wifi à proximité (un partage de connexion peut fonctionner).
+
+```
+sudo nmcli device wifi connect <network_name> password "<password>"
+```
+
+une fois le wifi configuré vous pouvez installer les softs :
+
+```
+./install_cognipilot.sh
+```
+
+Puis sélectionnez `n to clone with https`, `y for runtime optimization`, `1 for airy` puis `1 for b3rb`
+
+Désormais vous pouvez quittez le ssh (CTRL+D), et déconnecter le câble USB-A <-> USB-C. Vous pourrez pénétrer la NavQ en étant connecté sur le même wifi et en rentrant cette fois
+
+```
+ssh user@10.0.0.4
+```
+
+Pour rappel, cette procédure ne doit pas être éxécuté pour chaque ordinateur de l'équipe, seulement une seule fois.
+
+## Flash du MRCANHUB
+
+D'abord il faut que vous installiez ce soft sur votre ordinateur, sur le site [SEGGER](https://www.segger.com/downloads/jlink/), il s'agit du premier soft qui est à télécharger.
+
+Ensuite il va falloir connecter le MRCANHUB à votre ordinateur. Pour ce faire il faut impérativement redémarrer votre ordinateur, et ne pas lancer l'image docker dans un premier temps.
+
+Le branchement est le suivant :
+
+![](images/3.jpg)
+![](images/4.jpg)
+![](images/5.jpg)
+![](images/6.jpg)
+![](images/7.jpg)
+![](images/8.jpg)
+
+Le câble de votre ordinateur doit impérativement être sur de l'USB-2 (en vrai peut être que ça marche sur du 3 mais j'ai eu des soucis)
+
+Une fois tout correctement branché et le logiciel installé vous pouvez brancher la batterie du Rover (**Veiller à ce que il n'y ai aucun câble USB-A <-> USB-C de brancher entre le rover et votre ordinateur, par exemple si vous avez oublié de l'enlever à l'étape de la NavQ)
+
+Ensuite pénétrer l'image Docker :
+
+```
+cd ~/cognipilot/docker/dream
+./dream start
+./dream exec
+```
+
+Ensuite il faut modifier un peu le code fourni en installant un éditeur de texte:
+
+```
+sudo apt-get install nano
+```
+
+Puis
+
+```
+cd ~/cognipilot/ws/cerebri
+nano ~/cognipilot/ws/cerebri/app/b3rb/prj.conf
+```
+
+Trouver la ligne `CONFIG_CEREBRI_SENSE_POWER=y` et la ligne `CONFIG_CEREBRI_SENSE_SAFETY=y`
+
+Dans ces deux lignes changer `y` pour `n`.
+
+Ensuite faites CTRL+X pour sauvegarder, appuyer directement sur entrée quand ils demandent un nom de fichier
+
+Ensuite il faut éxécuter :
+
+```
+cd ~/cognipilot/ws/cerebri
+git pull
+west update
+west build -b mr_canhubk3 app/b3rb -p
+west flash
+```
+
+En théorie tout est opérationnel maintenant. Il faut également avoir en tête que cette partie là n'a pas vocation à être éxécutée tout le temps. Seulement quand votre code de robot change
+
+## Contrôle du robot
+
+Maintenant que tout est installé on peut se connecter à la NavQ en ssh, en étant sur le même wifi
