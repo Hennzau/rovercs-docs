@@ -178,6 +178,23 @@ Il faut alors choisir `y to clone with ssh keys` puis `1 for airy`. Acceptez ens
 source ~/.bashrc
 ```
 
+Ensuite il faut cloner le répertoire github de votre équipe qui contient le Cerebi. Pour notre part c'est 
+
+```
+cd ~/cognipilot/ws
+git clone https://github.com/Hennzau/RoverCS.git
+```
+
+Ensuite il faut build ce cerebi
+
+```
+cd ~/cognipilot/ws/rovercs
+git pull
+west update
+west build -b native_sim app/b3rb/ -p -t install
+source ~/.bashrc
+```
+
 # Utilisation du simulateur
 
 Normalement si vous avez suivi toutes les étapes votre installation permet d'utiliser le simulateur :
