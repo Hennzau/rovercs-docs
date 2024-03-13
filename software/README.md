@@ -147,7 +147,7 @@ mkdir ws
 cd ~/cognipilot/ws
 git clone https://github.com/Hennzau/cerebri.git
 cd ~/cognipilot/ws/cerebri
-west build -l .
+west init -l .
 west update
 west build -b native_sim app/b3rb/ -p -t install
 source ~/.bashrc
