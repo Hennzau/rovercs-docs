@@ -57,4 +57,3 @@ Le monde **nxp_raceway_octagon** peut être remplacé par un des monde suivant :
 - basic_map
 
 ## Contrôle du buggy via l'interface Electrode
-

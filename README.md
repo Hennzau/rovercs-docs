@@ -37,4 +37,4 @@ Les comportements attendus du buggy sont les suivants :
 - Mode autonome de suivi de ligne : le buggy, une fois placé sur une trajectoire définie par deux lignes paralèlles, va se déplacer sur le parcours en évitant les obstacles.
 - Mode offline sur simulateur : afin de tester votre code sur un environnement virtuel, il est possible d'utiliser le simulateur Gazebo
 
-Afin de comprendre comment utiliser ces différents modes vous pouvez vous référer à [cette](software/README.md)[ ](usage/README.md)[partie du répertoire](software/README.md)
+Afin de comprendre comment utiliser ces différents modes vous pouvez vous référer à [à cette partie du répertoire](usage/README.md)
