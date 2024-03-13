@@ -13,7 +13,7 @@ Le buggy est constitué d'une base roulante (4 roues, axe moteur, moteur), d'un 
 - Le MrCANHUB qui est un microcontrôleur alimenté par le PDB, relié au moteur qu'il peut contrôler et sur lequel est pluggé le GPS
 - La NavQ+ qui est une micro ordinateur, alimenté lui aussi par le PDB, qui est relié au MrCANHUB par la technologie éthernet. Il est connecté directement au LIDAR et à la caméra avant du véhicule. De plus c'est cette carte qui est capable de se connecter à un réseau Wifi. Ainsi en étant sur le même réseau Wifi que cette carte on peut s'y connecter via `ssh`
 
-Afin de comprendre mieux le montage vous pouvez vous référer à [cette partie du répertoire](software/README.md)
+Afin de comprendre mieux le montage vous pouvez vous référer à [cette partie du répertoire](hardware/README.md)
 
 ## Software : création de l'environnement de travail
 
@@ -37,4 +37,4 @@ Les comportements attendus du buggy sont les suivants :
 - Mode autonome de suivi de ligne : le buggy, une fois placé sur une trajectoire définie par deux lignes paralèlles, va se déplacer sur le parcours en évitant les obstacles.
 - Mode offline sur simulateur : afin de tester votre code sur un environnement virtuel, il est possible d'utiliser le simulateur Gazebo
 
-Afin de comprendre comment utiliser ces différents modes vous pouvez vous référer à [cette partie du répertoire](software/README.md)
+Afin de comprendre comment utiliser ces différents modes vous pouvez vous référer à [cette](software/README.md)[ ](usage/README.md)[partie du répertoire](software/README.md)
