@@ -170,7 +170,7 @@ source install/setup.bash
 
 Commençons par la **NavQ+**, vous pouvez vous référer [à ce guide](NAVQ) afin de vous connecter à la **NavQ** au moyen d'un câble **USB-A <-> USB-C** en mode **FLASH**. Ensuite il faut que vous flashiez la carte en effectuant les manipulations suivantes :
 
-D'abord vous devez aller télécharger les 3 fichiers en bas de cette [cette page github]([https://github.com/rudislabs/navqplus-images/releases/tag/22.04.4-humble](https://github.com/rudislabs/navqplus-images/releases/tag/22.04.4-humble))
+D'abord vous devez aller télécharger les 3 fichiers en bas de cette [cette page github](%5Bhttps://github.com/rudislabs/navqplus-images/releases/tag/22.04.4-humble%5D(https://github.com/rudislabs/navqplus-images/releases/tag/22.04.4-humble))
 
 Les trois fichiers sont :
 
@@ -196,7 +196,7 @@ Et finalement flasher la **NavQ+** :
 sudo ./uuu -b emmc_all navqplus-image-22.04-humble-240105185325.bin-flash_evk navqplus-image-22.04-humble-240105185325.wic
 ````
 
-Cette commande peut prendre une dizaine de minute, veillez à ce que votre ordinateur ne se mette pas en veille. 
+Cette commande peut prendre une dizaine de minute, veillez à ce que votre ordinateur ne se mette pas en veille.
 
 Une fois que le processus de flash est effectué vous devez vous référer [à ce guide](NAVQ.md) afin d'établir une connexion **WIFI** pour la **NavQ+**.
 
@@ -271,25 +271,3 @@ ros2 launch b3rb_gz_bringup sil.launch.py world:=basic_map
 ````
 
 Normalement sur l'interface de contrôle vous devriez observer un robot dans un espace avec des obstacles. Pour le contrôler manuellement sélectionner "manual", puis "arm" et enfin utilisez le joystick.
-
-Ensuite il faut modifier un peu le code fourni en installant un éditeur de texte:
-
-````
-sudo apt-get install nano
-````
-
-Puis
-
-````
-cd ~/cognipilot/ws/cerebri
-nano ~/cognipilot/ws/cerebri/app/b3rb/prj.conf
-````
-
-Il est possible que les lignes soient déjà corrigées
-
-Trouver la ligne `CONFIG_CEREBRI_SENSE_POWER=y` et la ligne `CONFIG_CEREBRI_SENSE_SAFETY=y`
-
-Dans ces deux lignes changer `y` pour `n`.
-
-Ensuite faites CTRL+X pour sauvegarder, appuyer directement sur entrée quand ils demandent un nom de fichier
-

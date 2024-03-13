@@ -29,7 +29,7 @@ Dans le cadre de la compétition NXPCup 2024, avec le kit MR-B3RB, seul la parti
 
 Afin de comprendre comment installer un environnement de travail pour le RoverCS vous pouvez vous référer à [cette partie du répertoire](software/README.md)
 
-## RoverC'Software : utilisation du buggy
+## RoverC'S'oftware : utilisation du buggy
 
 Les comportements attendus du buggy sont les suivants :
 
