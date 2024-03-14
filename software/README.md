@@ -206,13 +206,21 @@ A l'issu de cette connexion au Wifi vous pouvez vous connecter à la **NavQ+** d
 ssh user@10.42.0.40
 ````
 
-Puis vous devez utiliser le script **instal_cognipilot**
+Puis vous devez télécharger, compilé et installé le programme **Cranium**
 
 ````
-./install_cognipilot.sh
+cd ~/cognipilot/
+git clone https://github.com/Hennzau/cranium
+cd cranium/src/
+rm -rf b3rb_desktop
+rm -rf b3rb_simulator
+rm -rf dream_world
+rm -rf synapse_gz
+cd ~/cognipilot/cranium/
+colcon build --symlink-install
+cd ~/cognipilot/cranium/
+source install/setup.bash
 ````
-
-Puis sélectionnez `n to clone with https`, `y for runtime optimization`, `1 for airy` puis `1 for b3rb`
 
 A la fin du processus vous devez débrancher la connexion entre la **NavQ+** et votre ordinateur **host**. Vous devez vous assurer que les switchs de la carte **NavQ+** sont en mode OFF-ON (**eMMC**).
 
@@ -241,33 +249,3 @@ west flash
 En théorie tout est opérationnel maintenant. Votre buggy doit maintenant émettre quelques bruits, et un **bip** persiste : c'est votre GPS qui attend une connexion.
 
 A ce stade les différents programmes de base ont été correctement flashés sur les cartes.
-
-# Utilisation du simulateur
-
-Normalement si vous avez suivi toutes les étapes votre installation permet d'utiliser le simulateur :
-
-Démarrez et pénétrez l'image docker **dans deux terminaux différents** :
-
-````
-cd ~/cognipilot/docker/dream
-./dream start
-./dream exec
-````
-
-Dans l'un des deux vous devez démarez l'interface de commande :
-
-````
-ros2 launch electrode electrode.launch.py sim:=true
-````
-
-- Une fenêtre devrez alors s'ouvrir, vous devez cliquer sur "Ouvrir une connexion" et acceptez la connexion "ws://localhost:8765"
-- Ensuite dans la fenêtre principale, tout en haut à gauche cliquez et sélectionnez "View" puis "Import layout from file"
-- Sélectionnez alors cognipilot > electrode > src > electrode > foxglove_layouts > b3rb.json
-
-Actuellement la simulation est vide, car on a juste démarrer l'interface de contrôle, il faut maintenant rajouter le noeud de la simulation : Gazebo. Dans l'autre terminal tapez
-
-````
-ros2 launch b3rb_gz_bringup sil.launch.py world:=basic_map
-````
-
-Normalement sur l'interface de contrôle vous devriez observer un robot dans un espace avec des obstacles. Pour le contrôler manuellement sélectionner "manual", puis "arm" et enfin utilisez le joystick.

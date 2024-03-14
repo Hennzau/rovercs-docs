@@ -4,7 +4,7 @@ Cette partie du répertoire s'intéresse à la manière de se connecter et les d
 
 ## Connexion à la NavQ+ en mode FLASH
 
-Dans ce mode de connexion la **NavQ+** ne doit pas être alimentée par la batterie du buggy. Il faut utiliser un câble **USB-A <-> USB-C** et le connecter au port **USB1** de la carte, comme le montre l'image suivante.
+Dans ce mode de connexion la **NavQ+** **ne doit pas être alimentée par la batterie du buggy**. Il faut utiliser un câble **USB-A <-> USB-C** et le connecter au port **USB1** de la carte, comme le montre l'image suivante.
 
 Il faut également mettre la carte en mode FLASH en bougeant les switchs en mode **ON-OFF** comme le montre l'image suivante
 

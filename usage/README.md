@@ -44,6 +44,11 @@ puis d'ouvrir un autre terminal, et de faire
 cd ~/cognipilot/docker/dream
 ./dream start
 ./dream exec
+````
+
+puis
+
+````
 ros2 launch electrode electrode.launch.py sim:=true 
 ````
 
@@ -57,3 +62,29 @@ Le monde **nxp_raceway_octagon** peut être remplacé par un des monde suivant :
 - basic_map
 
 ## Contrôle du buggy via l'interface Electrode
+
+Vous pouvez contrôler le buggy manuellement et déclencher le mode automatique de suivi de ligne une fois bien placé. Pour faire ça, il faut `ssh`dans la **NavQ+** :
+
+````
+ssh user@10.42.0.40
+````
+
+Ensuite il faut lancer le programme principal, qui est un **noeud** `ROS2`,
+
+````
+ros2 launch b3rb_bringup robot.launch.py
+````
+
+Ensuite il faut ouvrir un autre terminal et pénétrer l'image **Docker**
+
+````
+cd ~/cognipilot/docker/dream
+./dream start
+./dream exec
+````
+
+Et enfin démarer **Electrode**
+
+````
+ros2 launch electrode electrode.launch.py sim:=true 
+````
