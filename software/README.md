@@ -173,6 +173,8 @@ cd ~/cognipilot
 build_foxglove
 ````
 
+Appuyez sur `n` pour clonner sans `ssh` puis sur `1` pour choisir `airy`
+
 ## Flash de la NavQ+ et du MrCANHUB
 
 *Ces étapes sont à effectuer uniquement si c'est la première fois que vous prenez en main le buggy. Lors du développement les procédures seront globalement les mêmes, mais certaines étapes seront à proscrire, tout est rappelé dans la troisième partie du répertoire "usage".*
