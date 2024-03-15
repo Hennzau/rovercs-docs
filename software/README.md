@@ -164,6 +164,15 @@ cd ~/cognipilot/electrode/
 source install/setup.bash
 ```
 
+#### Foxglove Studio
+
+Une fois **Electrode** installé, il faut installer son backend, pour faire ça vous pouvez suivre les commandes suivantes :
+
+````
+cd ~/cognipilot
+build_foxglove
+````
+
 ## Flash de la NavQ+ et du MrCANHUB
 
 *Ces étapes sont à effectuer uniquement si c'est la première fois que vous prenez en main le buggy. Lors du développement les procédures seront globalement les mêmes, mais certaines étapes seront à proscrire, tout est rappelé dans la troisième partie du répertoire "usage".*
