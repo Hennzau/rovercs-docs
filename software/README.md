@@ -134,6 +134,7 @@ Une fois dans cette image il va falloir télécharger les codes des différents 
 cd ~/cognipilot
 git clone https://github.com/Hennzau/cranium.git
 cd ~/cognipilot/cranium/
+git submodule update --init --recursive
 colcon build --symlink-install
 cd ~/cognipilot/cranium/
 source install/setup.bash
@@ -173,7 +174,7 @@ cd ~/cognipilot
 build_foxglove
 ````
 
-Appuyez sur `n` pour clonner sans `ssh` puis sur `1` pour choisir `airy`
+Appuyez sur `n`pour clonner sans `ssh` puis sur `1` pour choisir `airy`
 
 ## Flash de la NavQ+ et du MrCANHUB
 
@@ -222,12 +223,8 @@ Puis vous devez télécharger, compilé et installé le programme **Cranium**
 ````
 cd ~/cognipilot/
 git clone https://github.com/Hennzau/cranium
-cd cranium/src/
-rm -rf b3rb_desktop
-rm -rf b3rb_simulator
-rm -rf dream_world
-rm -rf synapse_gz
 cd ~/cognipilot/cranium/
+git submodule update --init --recursive
 colcon build --symlink-install
 cd ~/cognipilot/cranium/
 source install/setup.bash

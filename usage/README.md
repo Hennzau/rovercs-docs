@@ -2,7 +2,7 @@
 
 Cette partie se consacre à l'utilisation du buggy dans le cadre d'un développement pour les différents modes d'usage.
 
-## Utilisation du simulateur
+## Utilisation du simulateur (ne marche plus pour le moment)
 
 Dans cette partie on s'intéresse au simulateur disponible pour tester le buggy dans un environnement virtuel.
 
@@ -20,6 +20,8 @@ cd ~/cognipilot/docker/dream
 
 ````
 cd ~/cognipilot/cranium/
+git pull
+git submodule update --remote
 colcon build --symlink-install
 cd ~/cognipilot/cranium/
 source install/setup.bash
@@ -67,6 +69,16 @@ Vous pouvez contrôler le buggy manuellement et déclencher le mode automatique 
 
 ````
 ssh user@10.42.0.40
+````
+
+Ensuite si il y'a des mises à jours :
+
+````
+cd ~/cognipilot/cranium
+git pull
+git submodule update --remote
+colcon build --symlink-install
+source install/setup.bash
 ````
 
 Ensuite il faut lancer le programme principal, qui est un **noeud** `ROS2`,
