@@ -146,7 +146,7 @@ source install/setup.bash
 cd ~/cognipilot
 mkdir ws
 cd ~/cognipilot/ws
-git clone https://github.com/Hennzau/cerebri.git
+git clone https://github.com/Hennzau/cerebri-old.git cerebri
 cd ~/cognipilot/ws/cerebri
 west init -l .
 west update
