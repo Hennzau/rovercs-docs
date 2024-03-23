@@ -4,9 +4,7 @@
 
 ## Les prérequis
 
-- Il est actuellement *nécessaire* de posséder un ordinateur (de préférence portable) qui fonctionne avec Linux (de préférence un environnement simple comme Ubuntu 22.04) sous l'architecture x64 (donc pas de Macbook M1/M2/M3 désolé).
-
-**Il n'est pas possible de développer sur MacOS et sur Windows pour le moment, mais il est possible de redévelopper les outils initialement prévus par Cognipilot pour les intégrer sur les différents OS**
+- Il est actuellement *nécessaire* de posséder un ordinateur (de préférence portable) qui fonctionne avec Linux (de préférence un environnement simple comme Ubuntu 22.04) sous l'architecture x64 (donc pas de Macbook M1/M2/M3 désolé). **Il n'est pas possible de développer sur MacOS et sur Windows pour le moment, mais il est possible de redévelopper les outils initialement prévus par Cognipilot pour les intégrer sur les différents OS**
 
 - Une machine virtuelle ne sera pas possible étant donné que l'environnement de travail est englobée dans une image Docker.
 
@@ -132,8 +130,9 @@ Une fois dans cette image il va falloir télécharger les codes des différents 
 
 ````
 cd ~/cognipilot
-git clone https://github.com/Hennzau/cranium-old.git cranium
+git clone https://github.com/Hennzau/cranium.git
 cd ~/cognipilot/cranium/
+git submodule update --init --recursive
 colcon build --symlink-install
 cd ~/cognipilot/cranium/
 source install/setup.bash
@@ -145,11 +144,11 @@ source install/setup.bash
 cd ~/cognipilot
 mkdir ws
 cd ~/cognipilot/ws
-git clone https://github.com/Hennzau/cerebri-old.git cerebri
+git clone https://github.com/Hennzau/cerebri.git
 cd ~/cognipilot/ws/cerebri
 west init -l .
 west update
-west build -b native_sim app/b3rb/ -p -t install
+west build -b mr_canhubk3 app/b3rb -p
 source ~/.bashrc
 ````
 
